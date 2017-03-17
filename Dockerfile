@@ -32,8 +32,8 @@ ADD ${PLUGIN_URL}/plugin-reviewers-${PLUGIN_VERSION}/${PLUGIN_DIR}/reviewers/rev
 ADD ./files/configure-and-run.sh ${GERRIT_HOME}/bin/configure-and-run.sh
 RUN chmod +x ${GERRIT_HOME}/bin/configure-and-run.sh
 
-RUN addgroup -g ${GERRIT_USER_GID} ${GERRIT_USER} && \
-    adduser -h ${GERRIT_HOME} -s /bin/sh -u ${GERRIT_USER_GID} -D -G ${GERRIT_USER} -H ${GERRIT_USER} && \
+RUN addgroup --gid ${GERRIT_USER_GID} ${GERRIT_USER} && \
+    adduser --home ${GERRIT_HOME} --no-create-home --shell /bin/sh --uid ${GERRIT_USER_GID} --gid ${GERRIT_USER_GID} --disabled-login --system ${GERRIT_USER} && \
     chown -R ${GERRIT_USER}:${GERRIT_USER} ${GERRIT_HOME}
 
 USER ${GERRIT_USER}

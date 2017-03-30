@@ -22,7 +22,7 @@ then
   cp ${SECURE_CONFIG} ${GERRIT_SITE}/etc/secure.config
 fi
 
-java ${JAVA_FLAGS} -jar ${GERRIT_HOME}/gerrit.war init --batch --no-auto-start --site-path ${GERRIT_SITE}
+java ${JAVA_FLAGS} -jar ${GERRIT_HOME}/gerrit.war init --batch --install-all-plugins --no-auto-start --site-path ${GERRIT_SITE}
 
 java ${JAVA_FLAGS} -jar ${GERRIT_HOME}/gerrit.war reindex --site-path ${GERRIT_SITE}
 

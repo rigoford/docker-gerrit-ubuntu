@@ -33,7 +33,7 @@ ENV GERRIT_HOME=${GERRIT_HOME} \
     GERRIT_PLUGINS_TMP=${GERRIT_PLUGINS_TMP}
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git openssh
+    apt-get install -y --no-install-recommends git
 
 RUN mkdir -p ${GERRIT_PLUGINS} && \
     mkdir -p ${GERRIT_LIB} && \
